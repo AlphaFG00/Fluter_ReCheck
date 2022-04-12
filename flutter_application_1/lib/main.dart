@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/screens/homeScreen.dart';
 
 void main(List<String> args) {
   runApp(const MyApp()); // para correr la app, necesita un widget llamado "app"
@@ -13,7 +14,6 @@ class MyApp extends StatelessWidget {
     //const dice que nunca va a cambiar el widget
     //final es lo que mas se asemeja a las constantes
     return const MaterialApp(
-      home: Center(child: Text('Hola Mundo')),
-    );
+        debugShowCheckedModeBanner: false, home: HomeScreen());
   }
 }
