@@ -12,29 +12,33 @@ class HomeScreen extends StatelessWidget {
     const fontSize30 = TextStyle(fontSize: 30);
 
     return Scaffold(
-        //backgroundColor: Colors.indigo,
-        //appbar no es un widget que tenga constante.
-        appBar: AppBar(
-          title: const Text('Home'),
-          elevation: 0.0,
+      //backgroundColor: Colors.indigo,
+      //appbar no es un widget que tenga constante.
+      appBar: AppBar(
+        title: const Text('Home'),
+        elevation: 0.0,
+      ),
+      body: Center(
+        child: Column(
+          //de arriba a abajo
+          mainAxisAlignment: MainAxisAlignment.center,
+          //de izquireda a derecha
+          //crossAxisAlignment: CrossAxisAlignment.center,
+          children: const <Widget>[
+            Text(
+              'Numero de Taps',
+              style: fontSize30,
+            ),
+            Text(
+              "0",
+              style: fontSize30,
+            ),
+          ],
         ),
-        body: Center(
-          child: Column(
-            //de arriba a abajo
-            mainAxisAlignment: MainAxisAlignment.center,
-            //de izquireda a derecha
-            //crossAxisAlignment: CrossAxisAlignment.center,
-            children: const <Widget>[
-              Text(
-                'Numero de Taps',
-                style: fontSize30,
-              ),
-              Text(
-                "0",
-                style: fontSize30,
-              ),
-            ],
-          ),
-        ));
+      ),
+      //adding button
+      floatingActionButton:
+          FloatingActionButton(child: const Icon(Icons.add), onPressed: () {}),
+    );
   }
 }
