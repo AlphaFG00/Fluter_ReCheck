@@ -36,6 +36,8 @@ class HomeScreen extends StatelessWidget {
           ],
         ),
       ),
+      //changing position
+      //floatingActionButtonLocation: FloatingActionButtonLocation.miniEndFloat,
       //adding button
       floatingActionButton:
           FloatingActionButton(child: const Icon(Icons.add), onPressed: () {}),
