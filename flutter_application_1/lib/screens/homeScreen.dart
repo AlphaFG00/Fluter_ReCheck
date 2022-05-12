@@ -5,11 +5,15 @@ import 'package:flutter/material.dart';
 class HomeScreen extends StatelessWidget {
   const HomeScreen({Key? key}) : super(key: key);
 
+  //propiedad
+
   @override
   //Build Context: todo el arbol de widgets, mantiene toda la referencia hasta este punto
   Widget build(BuildContext context) {
-    //tamaño de texto como constante:
+    //tamaño de texto como variable:
     const fontSize30 = TextStyle(fontSize: 30);
+
+    int counter = 20;
 
     return Scaffold(
       //backgroundColor: Colors.indigo,
@@ -24,13 +28,13 @@ class HomeScreen extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           //de izquireda a derecha
           //crossAxisAlignment: CrossAxisAlignment.center,
-          children: const <Widget>[
-            Text(
+          children: <Widget>[
+            const Text(
               'Numero de Taps',
               style: fontSize30,
             ),
             Text(
-              "0",
+              '$counter',
               style: fontSize30,
             ),
           ],
