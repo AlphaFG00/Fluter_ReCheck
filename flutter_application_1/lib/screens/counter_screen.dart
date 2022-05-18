@@ -50,14 +50,43 @@ class _CounterScreenState extends State<CounterScreen> {
         ),
       ),
       //changing position
-      //floatingActionButtonLocation: FloatingActionButtonLocation.miniEndFloat,
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       //adding button
-      floatingActionButton: FloatingActionButton(
-          child: const Icon(Icons.add),
-          onPressed: () {
-            counter++;
-            setState(() {});
-          }),
+      //wrap in a row para poder poner 3 en el mismo renglón
+      floatingActionButton: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        children: [
+          FloatingActionButton(
+            child: const Icon(Icons.add),
+            //optimizando onPressed
+            //setState: funcion anonima que notifica un cambio interno en el estado
+            // y redibujará el widget
+            onPressed: () => setState(() => counter++),
+          ),
+          FloatingActionButton(
+              child: const Icon(Icons.exposure_zero),
+              onPressed: () {
+                counter = 0;
+
+                //funcion anonima que notifica un cambio interno en el estado
+                // y redibujará el widget
+                setState(() {});
+              }),
+          /*OPCION DE ESPACIADO CON SIZED BOX
+          const SizedBox(
+            width: 20,
+          ),*/
+          FloatingActionButton(
+              child: const Icon(Icons.exposure_minus_1),
+              onPressed: () {
+                counter--;
+
+                //funcion anonima que notifica un cambio interno en el estado
+                // y redibujará el widget
+                setState(() {});
+              }),
+        ],
+      ),
     );
   }
 }
