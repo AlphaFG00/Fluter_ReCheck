@@ -18,6 +18,21 @@ class _CounterScreenState extends State<CounterScreen> {
 
   int counter = 20;
 
+  void increase() {
+    counter++;
+    setState(() {});
+  }
+
+  void decrease() {
+    counter--;
+    setState(() {});
+  }
+
+  void reset() {
+    counter = 0;
+    setState(() {});
+  }
+
   @override
   //Build Context: todo el arbol de widgets, mantiene toda la referencia hasta este punto
   Widget build(BuildContext context) {
@@ -53,40 +68,53 @@ class _CounterScreenState extends State<CounterScreen> {
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       //adding button
       //wrap in a row para poder poner 3 en el mismo renglón
-      floatingActionButton: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-        children: [
-          FloatingActionButton(
-            child: const Icon(Icons.add),
-            //optimizando onPressed
-            //setState: funcion anonima que notifica un cambio interno en el estado
-            // y redibujará el widget
-            onPressed: () => setState(() => counter++),
-          ),
-          FloatingActionButton(
-              child: const Icon(Icons.exposure_zero),
-              onPressed: () {
-                counter = 0;
-
-                //funcion anonima que notifica un cambio interno en el estado
-                // y redibujará el widget
-                setState(() {});
-              }),
-          /*OPCION DE ESPACIADO CON SIZED BOX
-          const SizedBox(
-            width: 20,
-          ),*/
-          FloatingActionButton(
-              child: const Icon(Icons.exposure_minus_1),
-              onPressed: () {
-                counter--;
-
-                //funcion anonima que notifica un cambio interno en el estado
-                // y redibujará el widget
-                setState(() {});
-              }),
-        ],
+      floatingActionButton: CustomFloatingActionRow(
+        increaseFunc: increase,
+        decreaseFunc: decrease,
+        resetFunc: reset,
       ),
+    );
+  }
+}
+
+class CustomFloatingActionRow extends StatelessWidget {
+  final Function increaseFunc;
+  final Function decreaseFunc;
+  final Function resetFunc;
+
+  const CustomFloatingActionRow({
+    Key? key,
+    required this.increaseFunc,
+    required this.decreaseFunc,
+    required this.resetFunc,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+      children: [
+        FloatingActionButton(
+          child: const Icon(Icons.add),
+          //optimizando onPressed
+          //setState: funcion anonima que notifica un cambio interno en el estado
+          // y redibujará el widget
+          onPressed: () => increaseFunc(),
+        ),
+        FloatingActionButton(
+          child: const Icon(Icons.exposure_zero),
+          onPressed: () => resetFunc(),
+        ),
+        /*OPCION DE ESPACIADO CON SIZED BOX
+        const SizedBox(
+          width: 20,
+        ),*/
+
+        FloatingActionButton(
+          child: const Icon(Icons.exposure_minus_1),
+          onPressed: () => decreaseFunc(),
+        ),
+      ],
     );
   }
 }
