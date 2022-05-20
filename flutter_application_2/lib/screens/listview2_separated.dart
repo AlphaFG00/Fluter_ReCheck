@@ -10,8 +10,6 @@ class ListView2Screen extends StatelessWidget {
     return Scaffold(
         appBar: AppBar(
           title: const Text('ListView_2'),
-          elevation: 0,
-          backgroundColor: Colors.indigo,
         ),
         //para constriur la lista con elementos separados
         body: ListView.separated(
