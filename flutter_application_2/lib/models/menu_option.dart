@@ -2,7 +2,6 @@
 import 'package:flutter/material.dart' show IconData, Widget;
 
 class MenuOption {
-
   //como es final requiere inicializar y construir
 
   final String route;
@@ -10,14 +9,10 @@ class MenuOption {
   final String name;
   final Widget screen;
 
-  MenuOption({required this.route,
-  required this.icon,
-  required this.name,
-  required this.screen,
-  })
-
-
-
-
-
+  MenuOption({
+    required this.route,
+    required this.icon,
+    required this.name,
+    required this.screen,
+  });
 }

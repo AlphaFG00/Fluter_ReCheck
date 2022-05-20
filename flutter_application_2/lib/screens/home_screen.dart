@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_2/routes/app_routes.dart';
 import 'package:flutter_application_2/screens/screens.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -6,6 +7,8 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final menuOptions = AppRoutes.menuOptions;
+
     return Scaffold(
         appBar: AppBar(
           elevation: 0,
@@ -13,8 +16,8 @@ class HomeScreen extends StatelessWidget {
         ),
         body: ListView.separated(
             itemBuilder: (context, index) => ListTile(
-                  title: const Text('Nombre de Ruta'),
-                  leading: const Icon(Icons.arrow_back),
+                  title: Text(menuOptions[index].name),
+                  leading: Icon(menuOptions[index].icon, color: Colors.indigo),
                   onTap: () {
                     //implementando la navegacion manera 1
                     /*
@@ -23,10 +26,10 @@ class HomeScreen extends StatelessWidget {
                     //push replacement destruye la ruta anterior
 
                     Navigator.pushReplacement(context, route);*/
-                    Navigator.pushNamed(context, 'card2');
+                    Navigator.pushNamed(context, menuOptions[index].route);
                   },
                 ),
             separatorBuilder: (_, ___) => const Divider(),
-            itemCount: 100));
+            itemCount: menuOptions.length));
   }
 }

@@ -11,7 +11,7 @@ class MyApp extends StatelessWidget {
         title: 'Material App',
         initialRoute: AppRoutes.initialRoute,
         //Rutas Optimizadas:
-        routes: AppRoutes.routes,
+        routes: AppRoutes.getAppRoutes(),
         //trabajar con rutas dinamicas, como un 404
         onGenerateRoute: AppRoutes.onGenerateRoute);
   }
