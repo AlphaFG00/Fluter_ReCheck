@@ -18,6 +18,10 @@ class MyApp extends StatelessWidget {
         'alert': (BuildContext context) => const AlertScreen(),
         'card': (BuildContext context) => const CardScreen(),
       },
+      //trabajar con rutas dinamicas, como un 404
+      onGenerateRoute: (settings) {
+        return MaterialPageRoute(builder: (context) => const AlertScreen());
+      },
     );
   }
 }
